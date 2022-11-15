@@ -1,37 +1,30 @@
-import {combineReducers, Middleware} from "redux";
-import {brokerDataSlice} from "./brokerDataSlice";
-import {configureStore} from "@reduxjs/toolkit";
-import {useDispatch} from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { rootReducer } from "./rootReducer";
 
-type AppThunkExtra = {}
+type AppThunkExtra = {};
 
-export const makeStore = () => {
-    const reducer = combineReducers({
-        brokerData: brokerDataSlice.reducer,
-    })
-
-    return configureStore({
-        reducer,
+export const makeStore = () =>
+    configureStore({
+        reducer: rootReducer,
         devTools: {
-            name: "BrokerChooser Homework",
+            name: "BrokerChooser Homework"
         },
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(),
-    })
-}
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat()
+    });
 
-export type AppStore = ReturnType<typeof makeStore>
+export type AppStore = ReturnType<typeof makeStore>;
 
-export type AppState = ReturnType<AppStore["getState"]>
+export type AppState = ReturnType<AppStore["getState"]>;
 
-export type AppDispatch = AppStore["dispatch"]
+export type AppDispatch = AppStore["dispatch"];
 
 export type AppAsyncThunkConfig = {
-    state: AppState
-    dispatch: AppDispatch
-    extra: AppThunkExtra
-}
+    state: AppState;
+    dispatch: AppDispatch;
+    extra: AppThunkExtra;
+};
 
 export const useAppDispatch = () => {
-    return useDispatch<AppDispatch>()
-}
+    return useDispatch<AppDispatch>();
+};

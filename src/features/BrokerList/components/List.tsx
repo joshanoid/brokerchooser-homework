@@ -13,12 +13,10 @@ export const List = ({ searchTerm }: Props) => {
     return (
         <div className="flex flex-col justify-between">
             {brokers.map((broker) => (
-                <div className="flex flex-col sm:flex-row items-center p-4 w-full bg-white mb-4">
+                <div className="flex flex-col items-center p-4 w-full bg-white mb-4">
                     <img src={broker.logoUrl} width={50} />
                     <div className="ml-4">
-                        <span className="text-base text-center sm:text-lg font-bold hover:text-primary-500">
-                            {broker.name}
-                        </span>
+                        <span className="text-base text-center font-bold">{broker.name}</span>
                     </div>
                     <div className="flex flex-col items-center ml-auto">
                         <div className="flex items-center relative w-max flex-col">

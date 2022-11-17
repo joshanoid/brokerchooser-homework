@@ -7,8 +7,8 @@ export const BrokerList = () => {
     const debouncedSearchTerm = useDebounce(searchTerm);
 
     return (
-        <section className="flex flex-col flex-1">
-            <div className="flex flex-col w-1/2 mb-6">
+        <section className="flex flex-col flex-1 sm:w-full sm:mt-10">
+            <div className="flex flex-col w-1/2 mb-6 sm:w-3/4 sm:self-center">
                 <label htmlFor="broker-filter" className="block text-sm ml-2 mb-1">
                     Filter by name
                 </label>

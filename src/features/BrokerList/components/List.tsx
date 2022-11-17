@@ -10,7 +10,7 @@ type Props = {
 export const List = ({ searchTerm }: Props) => {
     const brokers = useSelector((state: RootState) => selectBrokersByName(state, searchTerm));
 
-    return (
+    return brokers.length ? (
         <ul className="flex flex-col justify-between">
             {brokers.map((broker) => (
                 <li className="flex flex-row items-center p-4 w-full bg-white mb-4 rounded-md">
@@ -47,5 +47,9 @@ export const List = ({ searchTerm }: Props) => {
                 </li>
             ))}
         </ul>
+    ) : (
+        <div className="p-4 w-full bg-white mb-4 rounded-md">
+            No results for <span className="font-bold">{searchTerm}</span>
+        </div>
     );
 };

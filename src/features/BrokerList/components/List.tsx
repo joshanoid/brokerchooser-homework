@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/rootReducer";
-import { selectBrokerData, selectBrokersByName } from "../../../redux/slices/brokerDataSlice";
+import { RootState } from "../../../utils/types";
+import { selectBrokersByName } from "../../../redux/slices/brokerDataSlice";
 
 type Props = {
     searchTerm: string;

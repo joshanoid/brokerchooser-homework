@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { BrokerType, RootState } from "../../../utils/types";
-import { selectTop5BrokersByType } from "../../../redux/slices/brokerDataSlice";
+import { selectTop5BrokersByType } from "../../../redux/slices/brokerData";
 
 type Props = {
     type: BrokerType;
@@ -13,7 +13,7 @@ export const List = ({ type }: Props) => {
     return (
         <ul>
             {brokers.map((broker, index) => (
-                <li className="p-2 w-full mb-2">
+                <li key={broker.id} className="p-2 w-full mb-2">
                     <a
                         className="flex flex-row justify-between items-center"
                         rel="noreferrer nofollow"
@@ -35,9 +35,9 @@ export const List = ({ type }: Props) => {
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
                                     d="M9 5l7 7-7 7"
                                 ></path>
                             </svg>

@@ -31,9 +31,9 @@ export const measurementsSlice = createSlice({
     name: "measurements",
     initialState,
     reducers: {},
-    extraReducers: {
-        [addMeasurement.fulfilled.type]: (state: Measurements, action: PayloadAction<MeasurementEvent>) => {
+    extraReducers: (builder) => {
+        builder.addCase(addMeasurement.fulfilled, (state, action) => {
             return [...state, action.payload];
-        }
+        });
     }
 });
